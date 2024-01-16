@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\task;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 
 class TaskController extends Controller
 {
@@ -12,7 +13,8 @@ class TaskController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $tasks = Task::latest()->get(); //las trae de la base de datos y las guarda acá
+        return view('index',['tasks'=>$tasks]);
     }
 
     /**
@@ -26,10 +28,16 @@ class TaskController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse //esto es de laravel RedirectReponse
     {
+        //validación
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required'
+        ]);
+
         Task::create(($request->all()));
-        return redirect()->route('tasks.index');
+        return redirect()->route('tasks.index')->with('success','Nueva tarea creada');
         // Mostrar los datos del formulario dd($request->all());
     }
 
