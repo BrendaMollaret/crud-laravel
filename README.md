@@ -1,5 +1,12 @@
-Laravel Proyect. This is just a CRUD proyect for learning proposes.
+# Laravel Proyect. 
+## This is just a CRUD proyect for learning proposes.
 
-Needed: 
+### Needed: 
 - Xampp
 - Composer
+
+---
+
+### Instructions:
+
+- 
