@@ -13,7 +13,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::latest()->get(); //las trae de la base de datos y las guarda acá
+        $tasks = Task::latest()->paginate(3); //las trae de la base de datos y las guarda acá(get) //Luego puse paginate para que nos muestre 3 tareas nomas
         return view('index',['tasks'=>$tasks]);
     }
 

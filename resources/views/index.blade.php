@@ -26,7 +26,7 @@
                 <th>Estado</th>
                 <th>Acción</th>
             </tr>
-            @foreach ($tasks as $task) <!-- usamos las tareas que trajimos en el controller -->
+            @foreach ($tasks as $task) <!-- usamos las tareas que trajimos en el controller-->
              <tr>
                  <td class="fw-bold">{{$task->title}}</td>
                  <td>{{$task->description}}</td>
@@ -46,6 +46,8 @@
              </tr>
             @endforeach
         </table>
+        {{$tasks->links()}} <!-- Para la paginación-->
+
     </div>
 </div>
 @endsection
