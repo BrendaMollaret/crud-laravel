@@ -12,7 +12,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        //
+        return view('index');
     }
 
     /**
@@ -20,7 +20,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -28,7 +28,9 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Task::create(($request->all()));
+        return redirect()->route('tasks.index');
+        // Mostrar los datos del formulario dd($request->all());
     }
 
     /**

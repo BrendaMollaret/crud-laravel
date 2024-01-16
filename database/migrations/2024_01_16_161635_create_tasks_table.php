@@ -14,10 +14,10 @@ return new class extends Migration
         //php artisan make:migration create_tasks_table
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->string('Titulo');
-            $table->text('Descripción');
-            $table->dateTime('Tiempo limite')->nullable();
-            $table->enum('Estado',['Pendiente','En progreso', 'Completada']);
+            $table->string('title');
+            $table->text('description');
+            $table->dateTime('due_date')->nullable();
+            $table->enum('status',['Pendiente','En progreso', 'Completada']);
             $table->timestamps();
         });
     }
