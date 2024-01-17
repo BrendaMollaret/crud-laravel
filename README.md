@@ -9,4 +9,5 @@
 
 ### Instructions:
 
+- Composer install
 - 
